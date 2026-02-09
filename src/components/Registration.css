@@ -1,0 +1,116 @@
+.registration {
+    padding: 80px 0;
+}
+
+.registration-card {
+    position: relative;
+    background: var(--bg-card);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    overflow: hidden;
+}
+
+.reg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.reg-glow-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-cyan);
+    top: -100px;
+    left: -100px;
+}
+
+.reg-glow-2 {
+    width: 250px;
+    height: 250px;
+    background: var(--accent-purple);
+    bottom: -80px;
+    right: -80px;
+}
+
+.registration-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reg-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    border-radius: 20px;
+    animation: glow 3s infinite;
+}
+
+.reg-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--bg-primary);
+}
+
+.reg-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.reg-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.reg-description strong {
+    color: var(--accent-cyan);
+}
+
+.reg-btn {
+    padding: 20px 48px;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.reg-deadline {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.deadline-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.deadline-date {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+}
+
+@media (max-width: 768px) {
+    .registration-card {
+        padding: 40px 24px;
+    }
+
+    .reg-btn {
+        width: 100%;
+        padding: 18px 32px;
+    }
+}
