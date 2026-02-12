@@ -1,96 +1,135 @@
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+/* ===== About Hero Description ===== */
+.about-hero {
+    position: relative;
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+    padding: 40px 50px;
+    background: var(--bg-card);
+    overflow: hidden;
+
+    clip-path: polygon(0 20px, 20px 0, calc(100% - 20px) 0, 100% 20px,
+            100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px));
 }
 
-.about-text {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--cyan), var(--purple), var(--pink));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    clip-path: polygon(0 20px, 20px 0, calc(100% - 20px) 0, 100% 20px,
+            100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px));
+    opacity: 0.5;
+}
+
+.about-hero-glow {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(155, 93, 229, 0.12), rgba(76, 201, 240, 0.06), transparent);
+    pointer-events: none;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .about-lead {
-    font-size: 1.3rem;
-    line-height: 1.7;
+    font-size: 1.15rem;
     color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 18px;
 }
 
-.about-text p {
+.about-sub {
+    font-size: 1rem;
     color: var(--text-secondary);
-    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
-.highlight {
-    color: var(--accent-cyan);
-    font-weight: 600;
-}
-
-.about-stats {
+/* ===== Stats Grid ===== */
+.stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .stat-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 28px;
     text-align: center;
-    transition: var(--transition);
-}
-
-.stat-card:hover {
-    border-color: var(--accent-cyan);
-    box-shadow: var(--glow-cyan);
-    transform: translateY(-5px);
+    padding: 28px 20px;
+    position: relative;
 }
 
 .stat-icon {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-    border-radius: 12px;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: block;
 }
 
-.stat-icon svg {
-    width: 24px;
-    height: 24px;
-    color: var(--bg-primary);
-}
-
-.stat-value {
+.stat-number {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 4px;
 }
 
-.stat-label {
-    font-size: 0.9rem;
+.stat-text {
+    font-size: 0.8rem;
     color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* ===== Responsive ===== */
 @media (max-width: 992px) {
-    .about-content {
+    .about-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
     }
 }
 
-@media (max-width: 480px) {
-    .about-stats {
-        grid-template-columns: 1fr;
+@media (max-width: 576px) {
+    .about-hero {
+        padding: 30px 25px;
+        clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+                100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    }
+
+    .about-hero::before {
+        clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+                100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
     }
 
     .about-lead {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 20px 15px;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
     }
 }

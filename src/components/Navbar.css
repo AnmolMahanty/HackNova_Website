@@ -1,18 +1,36 @@
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    z-index: 1100;
+    background: transparent;
+}
+
+.scroll-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink), var(--orange));
+    box-shadow: 0 0 10px var(--cyan-glow), 0 0 20px var(--purple-glow);
+    transition: width 0.1s linear;
+}
+
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: 16px 0;
     z-index: 1000;
     transition: var(--transition);
 }
 
 .navbar.scrolled {
     background: rgba(10, 10, 26, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    box-shadow: 0 2px 20px rgba(0, 240, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(155, 93, 229, 0.2);
 }
 
 .navbar-container {
@@ -21,21 +39,48 @@
     justify-content: space-between;
 }
 
-.navbar-logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 800;
+/* Brand with Logo */
+.navbar-brand {
     display: flex;
-    gap: 2px;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo-text {
-    color: var(--text-primary);
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(155, 93, 229, 0.5));
+    transition: var(--transition);
 }
 
-.logo-accent {
-    color: var(--accent-cyan);
-    text-shadow: var(--glow-cyan);
+.brand-logo:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(155, 93, 229, 0.8));
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+.brand-sub {
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 5px;
 }
 
 .navbar-links {
@@ -47,30 +92,44 @@
 
 .navbar-links a {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     transition: var(--transition);
     position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .navbar-links a::after {
     content: '';
     position: absolute;
-    bottom: -4px;
+    bottom: -6px;
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--accent-cyan);
+    background: var(--gradient-primary);
     transition: var(--transition);
 }
 
 .navbar-links a:hover {
-    color: var(--accent-cyan);
+    color: var(--text-primary);
 }
 
 .navbar-links a:hover::after {
     width: 100%;
+}
+
+/* Active section link */
+.navbar-links a.active {
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan-glow);
+}
+
+.navbar-links a.active::after {
+    width: 100%;
+    background: var(--cyan);
+    box-shadow: 0 0 6px var(--cyan-glow);
 }
 
 /* Mobile Menu Button */
@@ -88,7 +147,7 @@
 .mobile-menu-btn span {
     width: 25px;
     height: 2px;
-    background: var(--accent-cyan);
+    background: var(--gradient-primary);
     transition: var(--transition);
 }
 
@@ -105,7 +164,7 @@
 }
 
 /* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .mobile-menu-btn {
         display: flex;
     }
@@ -118,7 +177,8 @@
         height: 100vh;
         flex-direction: column;
         justify-content: center;
-        background: var(--bg-primary);
+        background: rgba(10, 10, 26, 0.98);
+        backdrop-filter: blur(20px);
         transition: var(--transition);
         gap: 40px;
     }
@@ -128,6 +188,17 @@
     }
 
     .navbar-links a {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-text {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 38px;
+        height: 38px;
     }
 }

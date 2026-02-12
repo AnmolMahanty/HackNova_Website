@@ -1,129 +1,187 @@
-.tracks-grid {
+.tracks-showcase {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
     margin-bottom: 50px;
 }
 
-.track-card {
-    background: var(--bg-card);
-    border-radius: 16px;
-    padding: 32px 24px;
+/* Track tile — flip container */
+.track-tile {
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    padding: 0;
+    min-height: 260px;
+    perspective: 800px;
+    cursor: pointer;
 }
 
-.track-card::before {
-    content: '';
+.track-tile .track-front,
+.track-tile .track-back {
+    padding: 35px 24px;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.track-front {
+    position: relative;
+    z-index: 1;
+}
+
+.track-back {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     opacity: 0;
-    transition: var(--transition);
+    transform: scale(0.95);
+    z-index: 2;
 }
 
-.track-cyan::before {
-    background: var(--accent-cyan);
+.track-tile:hover .track-front {
+    opacity: 0;
+    transform: scale(0.95);
 }
 
-.track-purple::before {
-    background: var(--accent-purple);
-}
-
-.track-orange::before {
-    background: var(--accent-orange);
-}
-
-.track-card:hover {
-    transform: translateY(-8px);
-}
-
-.track-card:hover::before {
+.track-tile:hover .track-back {
     opacity: 1;
+    transform: scale(1);
 }
 
-.track-cyan:hover {
-    border-color: var(--accent-cyan);
-    box-shadow: var(--glow-cyan);
+.track-back-icon {
+    font-size: 2rem;
+    margin-bottom: 4px;
 }
 
-.track-purple:hover {
-    border-color: var(--accent-purple);
+.track-long-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0 8px;
+}
+
+.track-explore {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    color: var(--cyan);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* Color Variants — Glow on hover */
+.track-tile.color-purple:hover {
     box-shadow: var(--glow-purple);
 }
 
-.track-orange:hover {
-    border-color: var(--accent-orange);
+.track-tile.color-cyan:hover {
+    box-shadow: var(--glow-cyan);
+}
+
+.track-tile.color-pink:hover {
+    box-shadow: var(--glow-pink);
+}
+
+.track-tile.color-orange:hover {
     box-shadow: var(--glow-orange);
 }
 
-.track-icon {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 20px;
+.track-tile.color-gradient:hover {
+    box-shadow: var(--glow-purple);
+}
+
+/* Icon Wrapper — Hexagonal */
+.track-icon-wrapper {
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 16px;
+    background: rgba(155, 93, 229, 0.1);
+    margin: 0 auto 18px;
     transition: var(--transition);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-.track-cyan .track-icon {
-    background: rgba(0, 240, 255, 0.1);
+.track-tile:hover .track-icon-wrapper {
+    transform: scale(1.1) rotate(10deg);
+    background: rgba(155, 93, 229, 0.25);
 }
 
-.track-cyan .track-icon svg {
-    color: var(--accent-cyan);
-}
-
-.track-purple .track-icon {
-    background: rgba(179, 71, 255, 0.1);
-}
-
-.track-purple .track-icon svg {
-    color: var(--accent-purple);
-}
-
-.track-orange .track-icon {
-    background: rgba(255, 107, 53, 0.1);
-}
-
-.track-orange .track-icon svg {
-    color: var(--accent-orange);
-}
-
-.track-icon svg {
-    width: 32px;
-    height: 32px;
+.track-icon {
+    font-size: 2rem;
 }
 
 .track-name {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--text-primary);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 .track-desc {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    line-height: 1.5;
+    margin-bottom: 18px;
 }
 
+.track-prize {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Note Section */
 .tracks-note {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), rgba(179, 71, 255, 0.05));
-    border: 1px solid rgba(0, 240, 255, 0.2);
-    border-radius: 16px;
+    background: var(--bg-card);
     padding: 24px 32px;
-    max-width: 700px;
+    max-width: 650px;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+            100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.tracks-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--cyan), var(--purple));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    clip-path: polygon(0 12px, 12px 0, calc(100% - 12px) 0, 100% 12px,
+            100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px));
+    opacity: 0.7;
+}
+
+.note-glow {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(76, 201, 240, 0.15), transparent);
+    pointer-events: none;
 }
 
 .note-icon {
@@ -131,22 +189,29 @@
     flex-shrink: 0;
 }
 
-.note-content strong {
-    color: var(--accent-cyan);
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 6px;
+.note-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
 }
 
-.note-content p {
+.note-text strong {
+    color: var(--cyan);
+    font-size: 1rem;
+    text-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.note-text span {
     color: var(--text-secondary);
-    margin: 0;
+    font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
     .tracks-note {
         flex-direction: column;
         text-align: center;
-        padding: 20px;
+        padding: 24px;
     }
 }
