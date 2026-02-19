@@ -113,7 +113,7 @@ const PreviousEvents = () => {
   ];
 
   return (
-    <section id="legacy" ref={targetRef} className="relative h-[400vh] bg-black">
+    <section id="legacy" ref={targetRef} className="relative h-[400vh] bg-black/90">
       <div className="sticky top-0 h-screen flex flex-col pt-32 md:pt-40 items-center overflow-hidden">
         
         {/* Header - Fixed to top left, fades out? No, keep it. */}
@@ -135,7 +135,9 @@ const PreviousEvents = () => {
         </motion.div>
         
         {/* Background Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,240,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10"></div>
+        {/* Purple glow accent */}
+        <div className="absolute top-0 right-0 w-[50vw] h-[60vh] bg-[radial-gradient(circle,rgba(217,70,239,0.06),transparent_70%)] pointer-events-none -z-10"></div>
       </div>
 
        {/* Detail Modal */}
@@ -146,7 +148,7 @@ const PreviousEvents = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full max-w-5xl bg-[#0a0f1f] border border-white/10 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row overflow-hidden max-h-[90vh]"
+                    className="w-full max-w-5xl bg-[#0a0f1f] border border-neon-blue/20 shadow-[0_0_50px_rgba(0,240,255,0.1)] flex flex-col md:flex-row overflow-hidden max-h-[90vh]"
                 >
                     {/* Left: Image & Title */}
                     <div className="relative w-full md:w-2/5 h-64 md:h-auto overflow-hidden">

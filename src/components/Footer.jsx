@@ -2,20 +2,51 @@ import { Github, Twitter, Instagram, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-10 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-center md:text-left">
-          <h3 className="text-2xl font-bold font-orbitron text-white">
-            HACK<span className="text-neon-blue">NOVA</span>
-          </h3>
-          <p className="text-gray-500 text-sm mt-2">© 2026 Technova Club. All rights reserved.</p>
+    // ── VIDEO SECTION: transparent so global video shows through ──
+    <footer className="relative bg-black/80 py-12 border-t border-neon-blue/20 backdrop-blur-sm scanlines">
+      {/* Faint grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,240,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,240,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+
+          {/* Brand */}
+          <div className="text-center md:text-left">
+            <h3
+              data-text="HACKNOVA"
+              className="glitch-text text-3xl font-bold font-orbitron text-white inline-block"
+            >
+              HACK<span className="text-neon-blue">NOVA</span>
+            </h3>
+            <p className="text-gray-600 text-xs mt-2 font-mono">© 2026 Technova Club. All rights reserved.</p>
+            <p className="text-gray-700 text-xs mt-1 font-mono">SSJCOE :: DOMBIVLI (E)</p>
+          </div>
+
+          {/* Status */}
+          <div className="text-center font-mono text-xs text-neon-blue/50 space-y-1">
+            <p className="flicker">SYSTEM_STATUS :: ONLINE</p>
+            <p>17 MAR 2026 :: H-HOUR APPROACHING</p>
+          </div>
+
+          {/* Socials */}
+          <div className="flex gap-6">
+            {[Instagram, Twitter, Github, Mail].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="text-gray-600 hover:text-neon-blue transition-colors hover:drop-shadow-[0_0_8px_#00F0FF]"
+              >
+                <Icon size={20} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        <div className="flex gap-6">
-          <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors"><Instagram /></a>
-          <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors"><Twitter /></a>
-          <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors"><Github /></a>
-          <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors"><Mail /></a>
+        {/* Bottom separator */}
+        <div className="mt-8 pt-6 border-t border-white/5 text-center">
+          <p className="text-gray-800 text-xs font-mono tracking-widest">
+            &lt; POWERED BY TECHNOVA CLUB // BUILD.DISRUPT.SURVIVE /&gt;
+          </p>
         </div>
       </div>
     </footer>
