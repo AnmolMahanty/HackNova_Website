@@ -75,18 +75,18 @@ const Protocol = () => {
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div className="h-12 flex items-center px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-3xl font-black text-red-600 font-sans tracking-tighter">V</span>
+              <span className="text-3xl font-black text-red-600 font-sans tracking-tighter"></span>
             </div>
             <div className="h-12 flex items-center px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-xl font-bold text-yellow-500 font-orbitron">ADAPTS</span>
+              <span className="text-xl font-bold text-yellow-500 font-orbitron"></span>
             </div>
             <div className="h-12 flex items-center gap-1 px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-xl font-bold text-blue-500 font-serif italic">Civora</span>
-              <span className="text-sm text-gray-400">Nexus</span>
+              <span className="text-xl font-bold text-blue-500 font-serif italic"></span>
+              <span className="text-sm text-gray-400"></span>
             </div>
             <div className="h-12 flex items-center gap-0 px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-lg font-bold text-purple-500">interview</span>
-              <span className="text-lg font-light text-white">buddy</span>
+              <span className="text-lg font-bold text-purple-500"></span>
+              <span className="text-lg font-light text-white"></span>
             </div>
           </div>
         </div>

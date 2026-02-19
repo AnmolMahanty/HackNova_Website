@@ -14,99 +14,101 @@ const PreviousEvents = () => {
   const events = [
     {
       id: "01",
-      title: "BUILD IT TOUR 2.0",
-      description: "A nationwide initiative to foster innovation and hands-on building.",
-      date: "SEP 27, 2025",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+      title: "PROMPT CRAFT",
+      description: "A deep dive into Generative AI and the art of Prompt Engineering.",
+      date: "OCT 05, 2024",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80", // AI/Tech abstract
       details: {
-        location: "MUMBAI_HQ",
-        briefing: "The exclusive curtain-raiser for the main Build It initiative.",
+        location: "Seminar Hall, SSJCOE",
+        briefing: "Understanding Large Language Models and mastering the art of communication with AI.",
         objectives: [
-           "Introduce vision and goals of the Build It initiative.",
-           "Interaction with industry experts and mentors.",
-           "Foster enthusiasm ahead of the main hackathon."
+           "Mastering Context-Driven Prompts.",
+           "Exploring Zero-shot vs Few-shot Learning.",
+           "Leveraging AI for rapid content generation."
         ],
         highlights: [
-            "Talks by Industry Leaders on future tech.",
-            "Hands-on workshops for physical computing."
+            "Live Demo of Advanced LLM Capabilities.",
+            "Interactive Q&A on Future of AI."
         ],
-        impact: "Inspired over 500+ participants to start building hardware projects.",
+        impact: "Empowered 150+ students to integrate AI tools into their development workflow.",
         visuals: [
-            "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=400&q=80",
-            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80"
+            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80",
+            "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
         ]
       }
     },
     {
       id: "02",
-      title: "HACKNOVA 1.0",
-      description: "The inaugural chapter where it all began. 24 hours of pure code.",
-      date: "NOV 15, 2024",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+      title: "DSA CODE QUEST",
+      description: "Hands-on Data Structures workshop followed by a coding battle.",
+      date: "SEP 12, 2024",
+      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80", // Coding screen
       details: {
-        location: "TECHNOVA_CAMPUS",
-        briefing: "The first-ever 24-hour hackathon that started a movement.",
+        location: "Seminar Hall, SSJCOE",
+        briefing: "A comprehensive workshop on DSA concepts followed by a competitive contest.",
         objectives: [
-           "Provide a platform for rapid prototyping.",
-           "Connect students with mentorship opportunities.",
-           "Solve real-world problem statements."
+           "Enhancing problem-solving efficiency.",
+           "Mastering Data Structures & Algorithms.",
+           "Preparation for technical interviews."
         ],
         highlights: [
-            "24 Hours of non-stop coding.",
-            "Participation from 30+ colleges."
+            "Expert-led DSA Workshop.",
+            "Real-time Coding Challenge."
         ],
-        impact: "Created 50+ deployable prototypes in a single day.",
+        impact: "Significantly boosted campus coding culture and competitive spirit.",
         visuals: [
-            "https://images.unsplash.com/photo-1504384308090-c54be3855833?w=400&q=80",
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
+            "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&q=80",
+            "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&q=80"
         ]
       }
     },
     {
       id: "03",
-      title: "TECHNOVA 2024",
-      description: "Annual technical symposium featuring workshops and project expos.",
-      date: "MAR 10, 2024",
-      image: "https://images.unsplash.com/photo-1504384308090-c54be3855833?w=800&q=80",
+      title: "WEB DEV WORKSHOP",
+      description: "Hands-on session building modern, responsive web applications.",
+      date: "AUG 20, 2024",
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80", // Web/Code
       details: {
-        location: "MAIN_AUDITORIUM",
-        briefing: "A celebration of technology, culture, and innovation.",
+        location: "Seminar Hall, SSJCOE",
+        briefing: "From HTML/CSS basics to modern React component architecture.",
         objectives: [
-           "Showcase student projects to a wider audience.",
-           "Technical workshops on AI and Blockchain."
+           "Understanding Frontend Fundamentals.",
+           "Responsive Design Best Practices.",
+           "Deploying live web applications."
         ],
         highlights: [
-            "Project Expo with 100+ stalls.",
-            "Keynote sessions by Alumni."
+            "Live Coding Walkthrough.",
+            "Building a Personal Portfolio Site."
         ],
-        impact: "Bridged the gap between academia and industry requirements.",
+        impact: "Enabled participants to launch their first live websites.",
         visuals: [
-            "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&q=80",
-            "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&q=80"
+            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80",
+            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80"
         ]
       }
     },
     {
       id: "04",
-      title: "CODE WARS",
-      description: "Competitive programming battle for the algorithmic elite.",
-      date: "DEC 05, 2023",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80",
+      title: "CAREER COMPASS",
+      description: "Navigating the path to a successful career in the tech industry.",
+      date: "JUL 15, 2024",
+      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80", // Career/Meeting
       details: {
-        location: "LAB_BLOCK_A",
-        briefing: "Intense algorithmic challenges designed to test logical thinking.",
+        location: "Seminar Hall, SSJCOE",
+        briefing: "Strategic guidance on resume building, interview prep, and industry trends.",
         objectives: [
-           "Identify top coding talent.",
-           "Prepare students for competitive programming platforms like ICPC."
+           "Resume & LinkedIn Optimization.",
+           "Cracking Technical Interviews.",
+           "Understanding Industry Expectations."
         ],
         highlights: [
-            "300+ Participants.",
-            "Real-time leaderboards."
+            "Insights from Industry Veterans.",
+            "Mock Interview Sessions."
         ],
-        impact: "Significantly improved campus coding culture.",
+        impact: "Provided clarity on career roadmaps for over 200+ aspiring engineers.",
         visuals: [
-            "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&q=80",
-            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80"
+            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80",
+            "https://images.unsplash.com/photo-1560523160-754a9e25c68f?w=400&q=80"
         ]
       }
     },
