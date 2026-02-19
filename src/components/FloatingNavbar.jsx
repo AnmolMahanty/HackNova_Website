@@ -7,7 +7,7 @@ const FloatingNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Timeline", icon: <Calendar size={20} />, to: "/#timeline" }, // Stacking order: Top
+    { name: "Timeline", icon: <Calendar size={20} />, to: "/timeline" }, // Stacking order: Top
     { name: "Venue", icon: <MapPin size={20} />, to: "/venue" },
     { name: "Home", icon: <Home size={20} />, to: "/" }, // Bottom (closest to button)
   ];

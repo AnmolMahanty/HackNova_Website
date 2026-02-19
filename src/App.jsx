@@ -9,6 +9,7 @@ import Mission from './components/Mission';
 import Tracks from './components/Tracks';
 import PreviousEvents from './components/PreviousEvents';
 import Venue from './components/Venue';
+import Timeline from './components/Timeline';
 import Protocol from './components/Protocol';
 import Organizers from './components/Organizers';
 import Footer from './components/Footer';
@@ -37,6 +38,7 @@ function App() {
               </>
             } />
             <Route path="/venue" element={<Venue />} />
+            <Route path="/timeline" element={<Timeline />} />
           </Routes>
         </>
       )}
