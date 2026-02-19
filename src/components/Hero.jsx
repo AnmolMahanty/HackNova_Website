@@ -31,25 +31,57 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 overflow-hidden bg-[#050505]">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-28 overflow-hidden bg-[#050505]">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-900/50 via-[#050505] to-[#050505] z-0"></div>
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 brightness-100 contrast-150"></div>
-      
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-[#050505]"></div>
+      </div>
+
+      {/* Top Header Bar with Logos */}
+      <div className="absolute top-0 left-0 right-0 z-20 flex items-center justify-between px-6 py-2 bg-black/70 backdrop-blur-sm border-b border-white/10">
+        {/* College Logo + Name */}
+        <div className="flex items-center gap-3">
+          <img
+            src="/college_logo.png"
+            alt="SSJCOE"
+            className="h-12 w-auto object-contain"
+          />
+          <div className="hidden md:block text-left">
+            <p className="text-white text-xs font-bold leading-tight tracking-wide">SHIVAJIRAO S. JONDHALE COLLEGE OF ENGINEERING</p>
+            <p className="text-gray-400 text-[10px] leading-tight">DOMBIVLI (E)</p>
+            <p className="text-gray-500 text-[9px] italic">(Affiliated to University of Mumbai)</p>
+          </div>
+        </div>
+
+        {/* Club Logo */}
+        <div className="flex items-center">
+          <img
+            src="/Club_logo.png"
+            alt="Technova Club"
+            className="h-14 w-auto object-contain"
+          />
+        </div>
+      </div>
+
       {/* Live Registration Indicator */}
       <div className="relative z-10 animate-pulse flex items-center gap-2 mb-8 mt-10 md:mt-0">
         <div className="w-2 h-2 rounded-full bg-red-600 shadow-[0_0_10px_#ff0000]"></div>
         <span className="text-red-500 font-mono text-sm tracking-widest uppercase">Live Registration</span>
       </div>
 
-      {/* Pill Badge */}
-      <div className="relative z-10 mb-6">
-        <div className="border border-white/20 bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full">
-          <span className="text-gray-300 font-mono text-xs md:text-sm tracking-[0.2em] uppercase">
-            &lt; National Level Hackathon /&gt;
-          </span>
-        </div>
-      </div>
+    
 
       {/* Main Title */}
       <h1 className="relative z-10 text-6xl md:text-9xl font-bold font-orbitron tracking-tighter mb-4 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
@@ -57,13 +89,12 @@ const Hero = () => {
       </h1>
 
       {/* Tagline */}
-      <div className="relative z-10 flex flex-col items-center mb-12">
-         <p className="text-lg md:text-2xl text-neon-blue font-bold tracking-widest uppercase mb-2 drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]">
-            12-Hour National Level Hybrid
-         </p>
-         <p className="text-sm md:text-base text-gray-400 max-w-2xl">
-            Enter the Multiverse. Build the Future. Disrupt Reality.
-         </p>
+      <div className="relative z-10 mb-6">
+        <div className="border border-white/20 bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full">
+          <span className="text-gray-300 font-mono text-xs md:text-sm tracking-[0.2em] uppercase">
+            &lt; 12-Hour National Level Hybrid Hackathon /&gt;
+          </span>
+        </div>
       </div>
 
       {/* Countdown Timer */}
