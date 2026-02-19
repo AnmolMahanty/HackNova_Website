@@ -1,1 +1,78 @@
 @import "tailwindcss";
+
+:root {
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+
+  --color-hack-bg: #050505;
+  --color-hack-dark: #0a0f1f;
+  --color-neon-blue: #00F0FF;
+  --color-neon-purple: #D946EF;
+  --color-cyber-red: #FF003C;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-hack-bg);
+    color: white;
+    font-family: var(--font-inter);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-neon-blue);
+    color: black;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-orbitron);
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 10px var(--color-neon-blue);
+  }
+
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00F0FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D946EF;
+}
