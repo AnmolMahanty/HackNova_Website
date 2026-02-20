@@ -28,7 +28,7 @@ const events = [
   },
   {
     date: "07", month: "MAR", year: "2026", time: "12:00 AM IST",
-    title: "Shortlist Announcement",
+    title: "Shortlist Teams Announcement",
     description: "Top teams selected for the grand finale are announced.",
     icon: <Trophy />, status: "UPCOMING"
   },

@@ -55,16 +55,20 @@ const Protocol = () => {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="bg-black/60 border border-white/10 rounded-xl p-8 backdrop-blur-md flex flex-col items-center text-center group hover:border-cyber-red/40 hover:shadow-[0_0_30px_rgba(255,0,60,0.1)] transition-all glitch-card"
+            className="bg-black/60 border border-red-500/20 rounded-xl p-8 backdrop-blur-md flex flex-col items-center text-center group hover:border-red-500/60 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] transition-all glitch-card grayscale opacity-70 hover:opacity-100 hover:grayscale-0"
           >
-            <div className="mb-6 w-16 h-16 rounded-full bg-white/5 flex items-center justify-center">
-              <Lock className="w-8 h-8 text-cyber-red" />
+            <div className="mb-6 w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center">
+              <Lock className="w-8 h-8 text-red-500" />
             </div>
-            <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">PROBLEM STATEMENTS</h3>
-            <p className="text-gray-500 text-xs font-mono mb-8">Timeline Locked. Access Restricted until H-Hour.</p>
-            <button className="px-6 py-3 border border-cyber-red/30 text-cyber-red/50 font-mono text-xs tracking-widest uppercase cursor-not-allowed w-full">
-              ACCESS_DENIED
-            </button>
+            <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">PPT & PROTOTYPE SUBMISSION</h3>
+            <p className="text-gray-500 text-xs font-mono mb-8">Submission Portal Locked. Waiting for H-Hour.</p>
+            <div className="w-full relative overflow-hidden">
+                <button className="px-6 py-3 border border-red-500/50 bg-red-500/10 text-red-500 font-mono text-xs tracking-widest uppercase cursor-not-allowed w-full font-bold">
+                [ ACCESS_DENIED ]
+                </button>
+                {/* Diagonal stripes overlay for 'disabled' look */}
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(0,0,0,0.2)_10px,rgba(0,0,0,0.2)_20px)] pointer-events-none" />
+            </div>
           </motion.div>
         </div>
 

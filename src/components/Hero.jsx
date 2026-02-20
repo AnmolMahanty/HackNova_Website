@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 
 // ── Glitch title cycle ──
 const CYCLE = [
@@ -102,6 +103,8 @@ const Hero = () => {
         </div>
       </div>
 
+     
+
       {/* Countdown Timer */}
       <div className="relative z-10 grid grid-cols-4 gap-4 md:gap-8 mb-12">
         {[
@@ -142,6 +145,34 @@ const Hero = () => {
             17TH MAR 2026
           </span>
         </div>
+
+      {/* CTA Buttons */}
+      <div className="relative z-10 flex flex-wrap justify-center gap-6 mb-12">
+        <a
+          href="https://unstop.com/o/hImHK14"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative px-8 py-4 bg-black/60 border-2 border-neon-blue/80 text-neon-blue font-orbitron font-bold tracking-widest hover:bg-white hover:text-blue-600 hover:shadow-[0_0_40px_rgba(0,240,255,0.6)] transition-all duration-300 overflow-hidden"
+          style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            REGISTER ON UNSTOP <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </a>
+
+        <a
+          href="https://chat.whatsapp.com/D4Uct3O0k3U1lecx00Xi5q?mode=gi_t"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative px-8 py-4 bg-black/60 border-2 border-green-500/80 text-green-400 font-orbitron font-bold tracking-widest hover:bg-green-500 hover:text-black hover:shadow-[0_0_40px_rgba(74,222,128,0.6)] transition-all duration-300 overflow-hidden"
+          style={{ clipPath: "polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%)" }}
+        >
+          <span className="relative z-10 flex items-center gap-3">
+            WHATSAPP COMMUNITY <MessageCircle size={20} className="group-hover:rotate-12 transition-transform" />
+          </span>
+        </a>
+      </div>
+      
       </div>
     </section>
   );

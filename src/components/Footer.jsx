@@ -1,6 +1,16 @@
-import { Github, Twitter, Instagram, Mail } from "lucide-react";
+import { useState } from "react";
+import { Github, Twitter, Instagram, Mail, Linkedin, Youtube, Check, Copy } from "lucide-react";
 
 const Footer = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (e, text) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     // ── VIDEO SECTION: transparent so global video shows through ──
     <footer className="relative bg-black/80 py-12 border-t border-neon-blue/20 backdrop-blur-sm scanlines">
@@ -29,16 +39,44 @@ const Footer = () => {
           </div>
 
           {/* Socials */}
-          <div className="flex gap-6">
-            {[Instagram, Twitter, Github, Mail].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="text-gray-600 hover:text-neon-blue transition-colors hover:drop-shadow-[0_0_8px_#00F0FF]"
-              >
-                <Icon size={20} />
-              </a>
-            ))}
+          <div className="flex gap-6 items-center">
+            {[
+              { Icon: Instagram, href: "https://www.instagram.com/technova_club?igsh=eG5ueDN4MTZycHhz" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/company/technova24/" },
+              { Icon: Youtube, href: "https://www.youtube.com/@TechNova_Club" },
+              { Icon: Mail, href: "mailto:technovaclub24@gmail.com", isMail: true }
+            ].map(({ Icon, href, isMail }, i) => {
+              const isExternal = !href.startsWith("mailto:");
+              
+              if (isMail) {
+                 return (
+                  <div key={i} className="relative group">
+                    <button
+                      onClick={(e) => handleCopy(e, "technovaclub24@gmail.com")}
+                      className="text-gray-600 hover:text-neon-blue transition-colors hover:drop-shadow-[0_0_8px_#00F0FF] flex items-center justify-center"
+                    >
+                      {copied ? <Check size={20} className="text-green-500" /> : <Icon size={20} />}
+                    </button>
+                    {/* Tooltip */}
+                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-neon-blue/20 text-neon-blue text-[10px] font-mono px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-neon-blue/30 backdrop-blur-md">
+                      {copied ? "COPIED!" : "COPY EMAIL"}
+                    </div>
+                  </div>
+                 );
+              }
+
+              return (
+                <a
+                  key={i}
+                  href={href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className="text-gray-600 hover:text-neon-blue transition-colors hover:drop-shadow-[0_0_8px_#00F0FF]"
+                >
+                  <Icon size={20} />
+                </a>
+              );
+            })}
           </div>
         </div>
 

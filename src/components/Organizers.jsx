@@ -22,7 +22,6 @@ const Organizers = () => {
 
         <div className="flex flex-wrap justify-center gap-8">
           {[
-            { name: "Samad Kazi", contact: "8108369366" },
             { name: "Anmol Mahanty", contact: "9029916542" },
             { name: "Yash Mohite", contact: "9967053816" }
           ].map((member, index) => (
