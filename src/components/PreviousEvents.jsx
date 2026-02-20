@@ -15,25 +15,27 @@ const PreviousEvents = () => {
     {
       id: "01",
       title: "PROMPT CRAFT",
-      description: "A deep dive into Generative AI and the art of Prompt Engineering.",
-      date: "OCT 05, 2024",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80", // AI/Tech abstract
+      description: "Prompt Engineering + Vibe Coding Workshop. Level up your AI game.",
+      date: "JAN 20, 2026",
+      image: "/promptcraft_main.jpeg", 
       details: {
-        location: "Seminar Hall, SSJCOE",
-        briefing: "Understanding Large Language Models and mastering the art of communication with AI.",
+        location: "Seminar Hall, SSJCOE | 10:30 AM – 2 PM",
+        briefing: "This isn’t another boring session — this is where you actually learn how to make AI work like a weapon for you. From crafting killer prompts to building vibe-coded mini projects.",
         objectives: [
-           "Mastering Context-Driven Prompts.",
-           "Exploring Zero-shot vs Few-shot Learning.",
-           "Leveraging AI for rapid content generation."
+           "Hands-on prompt engineering.",
+           "Real-time vibe-coding challenges.",
+           "Fast-track AI tricks you won’t find on YouTube.",
+           "Certificate of Completion."
         ],
         highlights: [
-            "Live Demo of Advanced LLM Capabilities.",
-            "Interactive Q&A on Future of AI."
+            "Crafting killer prompts.",
+            "Building vibe-coded mini projects.",
+            "Resume-worthy skills."
         ],
-        impact: "Empowered 150+ students to integrate AI tools into their development workflow.",
-        visuals: [
-            "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80",
-            "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
+        impact: "Empowered participants with practical AI skills for real-world applications.",
+      visuals: [
+            "/promptcraft_visual1.jpg",
+            "/promptcraft_visual2.jpg"
         ]
       }
     },
@@ -41,8 +43,8 @@ const PreviousEvents = () => {
       id: "02",
       title: "DSA CODE QUEST",
       description: "Hands-on Data Structures workshop followed by a coding battle.",
-      date: "SEP 12, 2024",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80", // Coding screen
+      date: "SEP 12, 2025",
+      image: "/DSA_main.jpeg", 
       details: {
         location: "Seminar Hall, SSJCOE",
         briefing: "A comprehensive workshop on DSA concepts followed by a competitive contest.",
@@ -57,8 +59,8 @@ const PreviousEvents = () => {
         ],
         impact: "Significantly boosted campus coding culture and competitive spirit.",
         visuals: [
-            "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&q=80",
-            "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400&q=80"
+            "/DSA_visual1.jpg",
+            "/DSA_visual2.jpg"
         ]
       }
     },
@@ -66,8 +68,8 @@ const PreviousEvents = () => {
       id: "03",
       title: "WEB DEV WORKSHOP",
       description: "Hands-on session building modern, responsive web applications.",
-      date: "AUG 20, 2024",
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80", // Web/Code
+      date: "AUG 20, 2025",
+      image: "/Web_Dev_main.jpeg", 
       details: {
         location: "Seminar Hall, SSJCOE",
         briefing: "From HTML/CSS basics to modern React component architecture.",
@@ -82,8 +84,8 @@ const PreviousEvents = () => {
         ],
         impact: "Enabled participants to launch their first live websites.",
         visuals: [
-            "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80",
-            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80"
+            "/web_dev_visual1.jpg",
+            "/web_dev_visual2.jpg"
         ]
       }
     },
@@ -91,8 +93,8 @@ const PreviousEvents = () => {
       id: "04",
       title: "CAREER COMPASS",
       description: "Navigating the path to a successful career in the tech industry.",
-      date: "JUL 15, 2024",
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80", // Career/Meeting
+      date: "JUL 15, 2025",
+      image: "/Career_Compass_main.jpeg",
       details: {
         location: "Seminar Hall, SSJCOE",
         briefing: "Strategic guidance on resume building, interview prep, and industry trends.",
@@ -107,8 +109,8 @@ const PreviousEvents = () => {
         ],
         impact: "Provided clarity on career roadmaps for over 200+ aspiring engineers.",
         visuals: [
-            "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&q=80",
-            "https://images.unsplash.com/photo-1560523160-754a9e25c68f?w=400&q=80"
+            "/Career_Compass_Visual1.jpg",
+            "/Career_Compass_Visual2.jpg"
         ]
       }
     },
@@ -295,9 +297,9 @@ const EventCard = ({ event, onOpen }) => {
                      <div className="flex items-center gap-6">
                         <button 
                             onClick={onOpen}
-                            className="bg-neon-blue text-black font-bold font-orbitron px-6 py-3 rounded hover:bg-white transition-colors flex items-center gap-2"
+                            className="bg-transparent border border-white/50 text-white font-mono font-bold px-6 py-3 hover:bg-white hover:text-black transition-all flex items-center gap-2 tracking-widest text-sm whitespace-nowrap"
                         >
-                            ACCESS DATA <ArrowRight size={18}/>
+                            [ ACCESS_DATA ] <ArrowRight size={16}/>
                         </button>
                         <div className="flex items-center gap-2 text-gray-500 font-mono text-xs">
                              <MapPin size={14}/>
