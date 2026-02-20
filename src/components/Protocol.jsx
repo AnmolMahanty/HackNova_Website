@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileText, Lock, AlertTriangle } from "lucide-react";
+import { FileText, Lock, AlertTriangle, Eye, Download } from "lucide-react";
 
 const Protocol = () => {
   return (
@@ -46,9 +46,23 @@ const Protocol = () => {
             </div>
             <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">MISSION RULEBOOK</h3>
             <p className="text-gray-500 text-xs font-mono mb-8">Classified Information. Authorized Personnel Only.</p>
-            <button className="px-6 py-3 border border-neon-purple/50 text-neon-purple font-mono text-xs tracking-widest uppercase hover:bg-neon-purple/10 hover:shadow-[0_0_15px_rgba(217,70,239,0.3)] transition-all w-full">
-              DOWNLOAD_METADATA
-            </button>
+            <div className="flex gap-4 w-full">
+                <a 
+                    href="/Rule_Book.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 px-4 py-3 border border-neon-purple/50 text-neon-purple font-mono text-xs tracking-widest uppercase hover:bg-neon-purple/10 hover:shadow-[0_0_15px_rgba(217,70,239,0.3)] transition-all flex items-center justify-center gap-2"
+                >
+                    <Eye size={16} /> VIEW
+                </a>
+                <a 
+                    href="/Rule_Book.pdf" 
+                    download="HackNova_RuleBook.pdf"
+                    className="flex-1 px-4 py-3 bg-neon-purple/10 border border-neon-purple/50 text-neon-purple font-mono text-xs tracking-widest uppercase hover:bg-neon-purple/20 hover:shadow-[0_0_15px_rgba(217,70,239,0.3)] transition-all flex items-center justify-center gap-2"
+                >
+                    <Download size={16} /> DOWNLOAD
+                </a>
+            </div>
           </motion.div>
 
           {/* Card 2: Problem Statements */}
