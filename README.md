@@ -1,16 +1,128 @@
-# React + Vite
+# HACKNOVA 2026 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **12-Hour National Level Hybrid Hackathon**  
+> *Multiverse of Code*
 
-Currently, two official plugins are available:
+A cyberpunk-themed hackathon website for HackNova 2026, hosted by Technova Club at Shivajirao S. Jondhale College of Engineering, Dombivli (E).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 About
 
-## React Compiler
+HackNova is a 12-hour national-level hybrid hackathon featuring:
+- **Date**: March 17, 2026
+- **Venue**: SSJCOE, Dombivli (E), Maharashtra
+- **Tracks**: EdTech, AI/ML, Web/App Dev, CyberTech, Open Innovation
+- **Prizes**: ₹50k+ in rewards
+- **Participants**: 400+ developers nationwide
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: React 19 + Vite 7
+- **Styling**: Tailwind CSS v4 with custom cyber/glitch animations
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Routing**: React Router DOM 7
+- **Fonts**: Inter + Orbitron (Google Fonts)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── FloatingNavbar.jsx  # Floating navigation menu
+│   ├── Loader.jsx          # Matrix-style preloader
+│   ├── Hero.jsx            # Main landing section with countdown
+│   ├── Mission.jsx         # Mission briefing section
+│   ├── Tracks.jsx          # Hackathon tracks showcase
+│   ├── PreviousEvents.jsx  # Past events carousel
+│   ├── Protocol.jsx        # Rules and partners
+│   ├── Organizers.jsx      # Team contacts
+│   ├── Footer.jsx          # Social links and footer
+│   ├── Venue.jsx           # Location and travel info
+│   ├── Timeline.jsx        # Event timeline
+│   └── Rules.jsx           # Detailed rules (component exists)
+├── App.jsx                 # Main app with routing
+├── main.jsx               # React entry point
+└── index.css              # Global styles + cyber animations
+
+public/
+├── *.jpeg, *.jpg          # Event images
+├── *.png                  # Logos
+├── hero-bg.mp4           # Background video
+└── Rule_Book.pdf         # Official rulebook
+```
+
+## ✨ Features
+
+### 🎨 UI/UX
+- **Cyber Theme**: Matrix rain, glitch effects, scanlines, CRT aesthetics
+- **Smooth Animations**: Framer Motion powered transitions
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Custom Scrollbars**: Neon-themed scrollbar styling
+
+### 🧭 Navigation
+- **Floating Menu**: Quick access to Timeline and Venue pages
+- **Single Page**: Main content flows as sections on homepage
+- **Routing**: Dedicated pages for Venue and Timeline
+
+### 🎭 Special Effects
+- **Glitch Text**: Dynamic text corruption with color shifts
+- **Hero Title Cycle**: Alternating title variations (HACKNOVA ↔ H4CKN0V4)
+- **Matrix Loader**: Full-screen loading experience
+- **Particle Systems**: Subtle background animations
+
+### 📱 Sections
+- **Hero**: Countdown timer, registration CTAs, event info
+- **Mission**: Hackathon overview with radar visual
+- **Tracks**: 5 themed competition categories
+- **Past Events**: Interactive carousel of previous events
+- **Protocol**: Rules download and submission portal
+- **Venue**: Google Maps integration with travel instructions
+- **Timeline**: Visual milestone tracker
+
+## 🎨 Color Palette
+
+```css
+--color-neon-blue: #00F0FF     /* Primary accent */
+--color-neon-purple: #D946EF   /* Secondary accent */
+--color-cyber-red: #FF003C     /* Alert/danger states */
+--color-hack-bg: #050505       /* Main background */
+--color-hack-dark: #0a0f1f     /* Section backgrounds */
+```
+
+## 🔗 External Links
+
+- **Registration**: [Unstop Platform](https://unstop.com/o/hImHK14)
+- **Community**: [WhatsApp Group](https://chat.whatsapp.com/D4Uct3O0k3U1lecx00Xi5q)
+- **Social**: Instagram, LinkedIn, YouTube (@technova_club)
+
+## 🏗️ Development Notes
+
+- Uses React 19's latest features
+- ESLint flat config for modern linting
+- Tailwind CSS v4 with `@tailwindcss/vite` plugin
+- Custom CSS animations in `index.css`
+- Background video requires `hero-bg.mp4` in public folder
+
+---
+
+**Built with ⚡ by Technova Club**  
+*Shivajirao S. Jondhale College of Engineering, Dombivli (E)*

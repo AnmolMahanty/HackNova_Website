@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { FileText, Lock, AlertTriangle, Eye, Download, Rocket } from "lucide-react";
+import { FileText, Lock, AlertTriangle, Eye, Download } from "lucide-react";
 
 const Protocol = () => {
   return (
@@ -66,24 +65,23 @@ const Protocol = () => {
             </div>
           </motion.div>
 
-          {/* Card 2:PPT & Prototype Submission*/}
+          {/* Card 2: Problem Statements */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="bg-black/60 border border-green-500/20 rounded-xl p-8 backdrop-blur-md flex flex-col items-center text-center group hover:border-green-500/60 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] transition-all glitch-card"
+            className="bg-black/60 border border-red-500/20 rounded-xl p-8 backdrop-blur-md flex flex-col items-center text-center group hover:border-red-500/60 hover:shadow-[0_0_30px_rgba(239,68,68,0.2)] transition-all glitch-card grayscale opacity-70 hover:opacity-100 hover:grayscale-0"
           >
-            <div className="mb-6 w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all">
-              <Rocket className="w-8 h-8 text-green-500" />
+            <div className="mb-6 w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center">
+              <Lock className="w-8 h-8 text-red-500" />
             </div>
             <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">PPT & PROTOTYPE SUBMISSION</h3>
-            <p className="text-gray-500 text-xs font-mono mb-8">Submission Portal Active. Submit your directives.</p>
+            <p className="text-gray-500 text-xs font-mono mb-8">Submission Portal Locked. Waiting for H-Hour.</p>
             <div className="w-full relative overflow-hidden">
-                <Link 
-                    to="/submission"
-                    className="block px-6 py-3 border border-green-500/50 bg-green-500/10 text-green-500 font-mono text-xs tracking-widest uppercase hover:bg-green-500/20 hover:shadow-[0_0_15px_rgba(34,197,94,0.3)] transition-all w-full font-bold text-center"
-                >
-                    [ ACCESS_PORTAL ]
-                </Link>
+                <button className="px-6 py-3 border border-red-500/50 bg-red-500/10 text-red-500 font-mono text-xs tracking-widest uppercase cursor-not-allowed w-full font-bold">
+                [ ACCESS_DENIED ]
+                </button>
+                {/* Diagonal stripes overlay for 'disabled' look */}
+                <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(0,0,0,0.2)_10px,rgba(0,0,0,0.2)_20px)] pointer-events-none" />
             </div>
           </motion.div>
         </div>

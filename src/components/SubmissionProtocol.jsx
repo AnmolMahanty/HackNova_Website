@@ -1,22 +1,61 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, AlertCircle, CheckCircle2, Terminal, ExternalLink, Timer, Users, BarChart3 } from "lucide-react";
+import { Send, AlertCircle, CheckCircle2, Terminal, ExternalLink, Timer, Users, BarChart3, RefreshCw } from "lucide-react";
 
-// --- CONFIGURATION: Update these manually every day at 8 PM ---
+// --- CONFIGURATION ---
 const SUBMISSION_DEADLINE = "2026-02-28T23:59:59";
-const TRACK_STATS = [
-  { name: "EDTECH", count: 0, color: "text-[#FFC800]", border: "border-[#FFC800]/30" },
-  { name: "AI / ML", count: 0, color: "text-[#FF003C]", border: "border-[#FF003C]/30" },
-  { name: "WEB / APP DEV", count: 0, color: "text-[#00FF64]", border: "border-[#00FF64]/30" },
-  { name: "CYBERTECH", count: 0, color: "text-[#B400FF]", border: "border-[#B400FF]/30" },
-  { name: "OPEN INNOVATION", count: 0, color: "text-[#00F0FF]", border: "border-[#00F0FF]/30" },
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxMX-3H-ee4NUpRbAdLojB49Sq3Kx72zlbgPkMTPTMhEEk4Pxdtb8L6iRv9AvVUPrXK/exec"; // Replace with your deployed script URL
+
+// Track configuration with colors
+const TRACK_CONFIG = [
+  { name: "EDTECH", key: "EDTECH", color: "text-[#FFC800]", border: "border-[#FFC800]/30" },
+  { name: "AI / ML", key: "AI_ML", color: "text-[#FF003C]", border: "border-[#FF003C]/30" },
+  { name: "WEB / APP DEV", key: "WEB_APP_DEV", color: "text-[#00FF64]", border: "border-[#00FF64]/30" },
+  { name: "CYBERTECH", key: "CYBERTECH", color: "text-[#B400FF]", border: "border-[#B400FF]/30" },
+  { name: "OPEN INNOVATION", key: "OPEN_INNOVATION", color: "text-[#00F0FF]", border: "border-[#00F0FF]/30" },
 ];
 
 const SubmissionProtocol = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0, hours: 0, minutes: 0, seconds: 0
   });
+  const [trackStats, setTrackStats] = useState(TRACK_CONFIG.map(track => ({ ...track, count: 0 })));
+  const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState(null);
+  const [error, setError] = useState(null);
 
+  // Fetch submission counts from Google Apps Script
+  const fetchSubmissionCounts = async () => {
+    try {
+      setError(null);
+      const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      
+      // Update track stats with fetched data
+      const updatedStats = TRACK_CONFIG.map(track => ({
+        ...track,
+        count: data[track.key] || 0
+      }));
+      
+      setTrackStats(updatedStats);
+      setLastUpdated(new Date());
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching submission counts:', error);
+      setError('Failed to load submission data');
+      setLoading(false);
+      
+      // Fallback to default data if fetch fails
+      setTrackStats(TRACK_CONFIG.map(track => ({ ...track, count: 0 })));
+    }
+  };
+
+  // Calculate countdown timer
   useEffect(() => {
     const calculateTimeLeft = () => {
       const difference = +new Date(SUBMISSION_DEADLINE) - +new Date();
@@ -41,6 +80,35 @@ const SubmissionProtocol = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  // Fetch data on component mount and set up periodic updates
+  useEffect(() => {
+    fetchSubmissionCounts();
+    
+    // Update every 5 minutes
+    const interval = setInterval(fetchSubmissionCounts, 5 * 60 * 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
+  // Get total submissions
+  const totalSubmissions = trackStats.reduce((sum, track) => sum + track.count, 0);
+
+  // Format last updated time
+  const formatLastUpdated = () => {
+    if (!lastUpdated) return "Loading...";
+    
+    const now = new Date();
+    const diff = Math.floor((now - lastUpdated) / 1000 / 60); // minutes ago
+    
+    if (diff < 1) return "Just now";
+    if (diff < 60) return `${diff}m ago`;
+    
+    const hours = Math.floor(diff / 60);
+    if (hours < 24) return `${hours}h ago`;
+    
+    return lastUpdated.toLocaleDateString();
+  };
 
   return (
     <section className="py-24 px-6 relative bg-black/40 overflow-hidden min-h-screen flex flex-col items-center scanlines">
@@ -117,29 +185,69 @@ const SubmissionProtocol = () => {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2 bg-black/60 border border-white/10 rounded-xl p-6 backdrop-blur-md"
           >
-            <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
-              <BarChart3 size={18} className="text-neon-blue" />
-              <h3 className="text-sm font-orbitron text-white uppercase tracking-widest">Track Reports</h3>
-            </div>
-            
-            <div className="space-y-4">
-              {TRACK_STATS.map((track, i) => (
-                <div key={i} className={`p-3 border ${track.border} bg-white/5 rounded-lg flex justify-between items-center group transition-all hover:bg-white/10`}>
-                  <div className="flex items-center gap-3">
-                     <Users size={14} className={track.color} />
-                     <span className="text-xs font-mono text-gray-300">{track.name}</span>
-                  </div>
-                  <span className={`text-sm font-orbitron ${track.color} font-bold`}>{track.count}</span>
-                </div>
-              ))}
+            <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+              <div className="flex items-center gap-2">
+                <BarChart3 size={18} className="text-neon-blue" />
+                <h3 className="text-sm font-orbitron text-white uppercase tracking-widest">Track Reports</h3>
+              </div>
+              <button 
+                onClick={fetchSubmissionCounts}
+                disabled={loading}
+                className="text-neon-blue hover:text-white transition-colors disabled:opacity-50"
+                title="Refresh data"
+              >
+                <RefreshCw size={14} className={loading ? "animate-spin" : ""} />
+              </button>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-1">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-tighter">Last Synchronized: Today 20:00</span>
-                <div className="w-2 h-2 rounded-full bg-neon-blue animate-pulse" />
+            {error && (
+              <div className="mb-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                <p className="text-red-400 text-xs font-mono">{error}</p>
               </div>
-              <span className="text-[9px] font-mono text-neon-purple/60 uppercase tracking-widest">Next Sector Update: Tomorrow 20:00</span>
+            )}
+            
+            <div className="space-y-4">
+              {loading && !trackStats.length ? (
+                // Loading skeleton
+                Array(5).fill(0).map((_, i) => (
+                  <div key={i} className="p-3 border border-white/10 bg-white/5 rounded-lg flex justify-between items-center animate-pulse">
+                    <div className="flex items-center gap-3">
+                       <div className="w-4 h-4 bg-gray-600 rounded"></div>
+                       <div className="w-20 h-3 bg-gray-600 rounded"></div>
+                    </div>
+                    <div className="w-8 h-4 bg-gray-600 rounded"></div>
+                  </div>
+                ))
+              ) : (
+                trackStats.map((track, i) => (
+                  <div key={i} className={`p-3 border ${track.border} bg-white/5 rounded-lg flex justify-between items-center group transition-all hover:bg-white/10`}>
+                    <div className="flex items-center gap-3">
+                       <Users size={14} className={track.color} />
+                       <span className="text-xs font-mono text-gray-300">{track.name}</span>
+                    </div>
+                    <span className={`text-sm font-orbitron ${track.color} font-bold tabular-nums`}>
+                      {track.count}
+                    </span>
+                  </div>
+                ))
+              )}
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-white/10 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-tighter">
+                  Last Sync: {formatLastUpdated()}
+                </span>
+                <div className={`w-2 h-2 rounded-full ${error ? 'bg-red-500' : 'bg-neon-blue animate-pulse'}`} />
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[9px] font-mono text-neon-purple/60 uppercase tracking-widest">
+                  Total Submissions: {totalSubmissions}
+                </span>
+                <span className="text-[9px] font-mono text-gray-500 uppercase">
+                  Auto-refresh: 5min
+                </span>
+              </div>
             </div>
           </motion.div>
 
