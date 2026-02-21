@@ -119,7 +119,7 @@ const SubmissionProtocol = () => {
           >
             <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4">
               <BarChart3 size={18} className="text-neon-blue" />
-              <h3 className="text-sm font-orbitron text-white uppercase tracking-widest">Sector Reports</h3>
+              <h3 className="text-sm font-orbitron text-white uppercase tracking-widest">Track Reports</h3>
             </div>
             
             <div className="space-y-4">
@@ -181,7 +181,7 @@ const SubmissionProtocol = () => {
 
               <div className="mt-8">
                 <a 
-                  href="https://forms.gle/your-form-link" 
+                  href="https://forms.gle/tvxjk8LiWJ43bRVe8" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-4 bg-neon-blue/10 border border-neon-blue/50 text-neon-blue font-orbitron text-sm tracking-[0.2em] uppercase hover:bg-neon-blue/20 hover:shadow-[0_0_20px_rgba(0,180,216,0.3)] transition-all flex items-center justify-center gap-3 group"
