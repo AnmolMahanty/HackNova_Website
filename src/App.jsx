@@ -13,6 +13,7 @@ import Timeline from './components/Timeline';
 import Protocol from './components/Protocol';
 import Organizers from './components/Organizers';
 import Footer from './components/Footer';
+import SubmissionProtocol from './components/SubmissionProtocol';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -52,6 +53,7 @@ function App() {
             } />
             <Route path="/venue" element={<div className="relative z-[2]"><Venue /></div>} />
             <Route path="/timeline" element={<div className="relative z-[2]"><Timeline /></div>} />
+            <Route path="/submission" element={<div className="relative z-[2]"><SubmissionProtocol /></div>} />
           </Routes>
         </>
       )}

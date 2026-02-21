@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Home, MapPin, Calendar, X } from "lucide-react";
+import { Plus, Home, MapPin, Calendar, X, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FloatingNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
+    { name: "Submission", icon: <Send size={20} />, to: "/submission" },
     { name: "Timeline", icon: <Calendar size={20} />, to: "/timeline" }, // Stacking order: Top
     { name: "Venue", icon: <MapPin size={20} />, to: "/venue" },
     { name: "Home", icon: <Home size={20} />, to: "/" }, // Bottom (closest to button)

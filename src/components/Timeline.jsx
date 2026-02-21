@@ -3,7 +3,7 @@ import { Calendar, Clock, Flag, CheckCircle, Users, Trophy } from "lucide-react"
 
 const events = [
   {
-    date: "11", month: "FEB", year: "2026", time: "12:00 AM IST",
+    date: "11", month: "FEB", year: "2026", time: "12:00 PM IST",
     title: "Registration Opens",
     description: "Portal opens for team registration and idea submission.",
     icon: <Flag />, status: "COMPLETED"
@@ -15,25 +15,25 @@ const events = [
     icon: <Calendar />, status: "UPCOMING"
   },
   {
-    date: "24", month: "FEB", year: "2026", time: "12:00 AM IST",
+    date: "28", month: "FEB", year: "2026", time: "12:00 PM IST",
     title: "Registration Deadline",
     description: "Last date to register your team and submit initial abstracts.",
     icon: <Clock />, status: "ACTIVE"
   },
   {
-    date: "28", month: "FEB", year: "2026", time: "12:00 AM IST",
+    date: "28", month: "FEB", year: "2026", time: "8:00 PM IST",
     title: "PPT & Prototype Submission",
     description: "Deadline for submitting detailed presentation and prototype video.",
-    icon: <CheckCircle />, status: "UPCOMING"
+    icon: <CheckCircle />, status: "ACTIVE"
   },
   {
-    date: "07", month: "MAR", year: "2026", time: "12:00 AM IST",
+    date: "07", month: "MAR", year: "2026", time: "8:00 PM IST",
     title: "Shortlist Teams Announcement",
     description: "Top teams selected for the grand finale are announced.",
     icon: <Trophy />, status: "UPCOMING"
   },
   {
-    date: "09", month: "MAR", year: "2026", time: "12:00 AM IST",
+    date: "09", month: "MAR", year: "2026", time: "8:00 PM IST",
     title: "Mentor Allocation",
     description: "Industry experts assigned to shortlisted teams for guidance.",
     icon: <Users />, status: "UPCOMING"

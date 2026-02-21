@@ -104,32 +104,6 @@ const Venue = () => {
               </div>
             </motion.div>
 
-            {/* Entry Timeline Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2 }}
-              className="bg-black/60 border border-neon-purple/20 rounded-xl p-8 relative backdrop-blur-sm glitch-card"
-            >
-              <h3 className="flex items-center gap-3 text-xl font-orbitron text-neon-purple mb-6 uppercase">
-                <Clock size={24} /> ENTRY PROTOCOL
-              </h3>
-              <div className="space-y-3 font-mono text-xs">
-                {[
-                  { time: "07:30 AM", event: "Gates Open", color: "text-neon-blue" },
-                  { time: "08:00 AM", event: "Check-In & Kit Distribution", color: "text-neon-blue" },
-                  { time: "09:00 AM", event: "Hackathon Begins", color: "text-neon-purple" },
-                  { time: "09:00 PM", event: "Evaluation & Judging", color: "text-yellow-400" },
-                  { time: "10:00 PM", event: "Results & Closing Ceremony", color: "text-green-400" },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <span className={`${item.color} w-20 shrink-0 font-bold`}>{item.time}</span>
-                    <div className="h-px flex-1 bg-white/10" />
-                    <span className="text-gray-300">{item.event}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
 
           </div>
         </div>
