@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 
 // ── Glitch title cycle ──
@@ -145,6 +146,7 @@ const Hero = () => {
             17TH MAR 2026
           </span>
         </div>
+      </div>
 
       {/* CTA Buttons */}
       <div className="relative z-10 flex flex-wrap justify-center gap-6 mb-12">
@@ -173,6 +175,43 @@ const Hero = () => {
         </a>
       </div>
       
+     
+
+      {/* Notice Strip */}
+      <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-black/80 border-y border-neon-blue/30 py-2 w-full max-w-4xl backdrop-blur-md flex items-center overflow-hidden relative group"
+        >
+          <div className="absolute inset-0 bg-neon-blue/5 group-hover:bg-neon-blue/10 transition-colors" />
+          
+          <motion.div
+            animate={{ x: ["0%", "-100%"] }}
+            transition={{ 
+              repeat: Infinity, 
+              duration: 40, 
+              ease: "linear"
+            }}
+            className="whitespace-nowrap flex items-center gap-12 relative z-10"
+          >
+            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4">
+              <span className="text-neon-blue"> [ NOTICE ] </span> 
+               Registration ends on <span className="text-white font-bold">28 FEB 12:00 PM</span> 
+               <span className="mx-4 text-white/20">|</span>
+               Submission started. Deadline: <span className="text-cyber-red font-bold">28 FEB 8:00 PM</span>
+            </p>
+            <p className="text-gray-300 font-mono text-[9px] md:text-xs tracking-[0.2em] uppercase px-4">
+              <span className="text-neon-blue"> [ NOTICE ] </span> 
+               Registration ends on <span className="text-white font-bold">28 FEB 12:00 PM</span> 
+               <span className="mx-4 text-white/20">|</span>
+               Submission started. Deadline: <span className="text-cyber-red font-bold">28 FEB 8:00 PM</span>
+            </p>
+          </motion.div>
+
+          {/* Scanning line for notice */}
+          <div className="absolute bottom-0 left-0 w-full h-[1px] bg-neon-blue/50 animate-[scan_2s_linear_infinite]" />
+        </motion.div>
       </div>
     </section>
   );

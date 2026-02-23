@@ -34,7 +34,7 @@ const Protocol = () => {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24 max-w-6xl mx-auto">
 
           {/* Card 1: Mission Rulebook */}
           <motion.div
@@ -68,14 +68,14 @@ const Protocol = () => {
 
           {/* Card 2: PPT & Prototype Submission */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             className="bg-black/60 border border-green-500/20 rounded-xl p-8 backdrop-blur-md flex flex-col items-center text-center group hover:border-green-500/60 hover:shadow-[0_0_30px_rgba(34,197,94,0.2)] transition-all glitch-card"
           >
             <div className="mb-6 w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(34,197,94,0.4)] transition-all">
               <Rocket className="w-8 h-8 text-green-500" />
             </div>
-            <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">PPT & PROTOTYPE SUBMISSION</h3>
+            <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">SUBMISSION PORTAL</h3>
             <p className="text-gray-500 text-xs font-mono mb-8">Submission Portal Active. Submit your directives.</p>
             <div className="w-full relative overflow-hidden">
                 <Link 
@@ -84,6 +84,28 @@ const Protocol = () => {
                 >
                     [ ACCESS_PORTAL ]
                 </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 3: PPT Template */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="bg-black/60 border border-neon-blue/20 rounded-xl p-8 backdrop-blur-md flex flex-col items-center text-center group hover:border-neon-blue/60 hover:shadow-[0_0_30px_rgba(0,180,216,0.2)] transition-all glitch-card"
+          >
+            <div className="mb-6 w-16 h-16 rounded-full bg-neon-blue/10 flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(0,180,216,0.4)] transition-all">
+              <Download className="w-8 h-8 text-neon-blue" />
+            </div>
+            <h3 className="text-xl font-orbitron text-white mb-2 rgb-hover">PPT TEMPLATE</h3>
+            <p className="text-gray-500 text-xs font-mono mb-8">Download official template for your transmission.</p>
+            <div className="w-full">
+                <a 
+                    href="/HackNova_PPT_Template.pptx" 
+                    download="HackNova_PPT_Template.pptx"
+                    className="block px-6 py-3 border border-neon-blue/50 bg-neon-blue/10 text-neon-blue font-mono text-xs tracking-widest uppercase hover:bg-neon-blue/20 hover:shadow-[0_0_15px_rgba(0,180,216,0.3)] transition-all w-full font-bold text-center"
+                >
+                    [ DOWNLOAD_TEMP ]
+                </a>
             </div>
           </motion.div>
         </div>

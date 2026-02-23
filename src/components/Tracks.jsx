@@ -101,10 +101,10 @@ const Tracks = () => {
           >
             <Swords className="w-8 h-8 text-[#FF4D00]" />
             <h2
-              data-text="EVENT TRACKS"
+              data-text="HACKNOVA TRACKS"
               className="glitch-text text-4xl md:text-5xl font-orbitron text-white tracking-wide"
             >
-              EVENT TRACKS
+              HACKNOVA TRACKS
             </h2>
           </motion.div>
           <p className="text-gray-500 tracking-[0.3em] font-mono text-xs md:text-sm uppercase">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Send, AlertCircle, CheckCircle2, Terminal, ExternalLink, Timer, Users, BarChart3, RefreshCw } from "lucide-react";
+import { Send, AlertCircle, CheckCircle2, Terminal, ExternalLink, Timer, Users, BarChart3, RefreshCw, Download } from "lucide-react";
 
 // --- CONFIGURATION ---
 const SUBMISSION_DEADLINE = "2026-02-28T23:59:59";
@@ -139,11 +139,11 @@ const SubmissionProtocol = () => {
         </div>
 
         {/* --- Countdown Timer Section --- */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className="max-w-4xl mx-auto mb-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-black/60 border border-cyber-red/20 rounded-xl p-6 backdrop-blur-md relative overflow-hidden group hover:border-cyber-red/40 transition-all flex flex-col md:flex-row items-center justify-between gap-8"
+            className="md:col-span-2 bg-black/60 border border-cyber-red/20 rounded-xl p-6 backdrop-blur-md relative overflow-hidden group hover:border-cyber-red/40 transition-all flex flex-col md:flex-row items-center justify-between gap-8"
           >
             <div className="flex items-center gap-4">
               <div className="p-3 bg-cyber-red/10 rounded-full border border-cyber-red/30">
@@ -163,7 +163,7 @@ const SubmissionProtocol = () => {
                 { label: "SEC", value: timeLeft.seconds },
               ].map((unit, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <span className="text-2xl md:text-4xl font-orbitron text-white font-bold tracking-tighter tabular-nums">
+                  <span className="text-2xl md:text-3xl font-orbitron text-white font-bold tracking-tighter tabular-nums">
                     {String(unit.value).padStart(2, '0')}
                   </span>
                   <span className="text-[10px] font-mono text-cyber-red tracking-widest uppercase">{unit.label}</span>
@@ -175,6 +175,29 @@ const SubmissionProtocol = () => {
             <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
               <div className="w-full h-1 bg-cyber-red absolute top-0 animate-[scan_3s_linear_infinite]" />
             </div>
+          </motion.div>
+
+          {/* PPT Template Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-black/60 border border-neon-blue/20 rounded-xl p-6 backdrop-blur-md relative overflow-hidden group hover:border-white/40 transition-all flex flex-col justify-center gap-4"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-neon-blue/10 rounded-lg border border-neon-blue/30">
+                <Download className="w-5 h-5 text-neon-blue" />
+              </div>
+              <h3 className="text-sm font-orbitron text-white tracking-widest uppercase">Resources</h3>
+            </div>
+            
+            <a 
+              href="/HackNova_PPT_Template.pptx" 
+              download="HackNova_PPT_Template.pptx"
+              className="w-full py-3 bg-white/5 border border-white/20 text-gray-300 font-mono text-[10px] tracking-[0.2em] uppercase hover:bg-white/10 hover:text-white hover:border-white/40 transition-all flex items-center justify-center gap-2"
+            >
+              DOWNLOAD PPT_TEMPLATE
+            </a>
           </motion.div>
         </div>
 
@@ -265,10 +288,10 @@ const SubmissionProtocol = () => {
                 
                 <div className="space-y-4">
                   {[
-                    "Project PPT in PDF format",
-                    "GitHub Repository Link (Public)",
-                    "Live Demo URL (if applicable)",
-                    "Team ID & Member Details"
+                    "Project PPT",
+                    "GitHub Repository Link",
+                    "Live Demo URL / YT Video Link",
+                    "Team Details"
                   ].map((req, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <CheckCircle2 size={16} className="text-neon-blue mt-1 shrink-0" />

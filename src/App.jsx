@@ -12,6 +12,7 @@ import Venue from './components/Venue';
 import Timeline from './components/Timeline';
 import Protocol from './components/Protocol';
 import Organizers from './components/Organizers';
+import ProblemStatements from './components/ProblemStatements';
 import Footer from './components/Footer';
 import SubmissionProtocol from './components/SubmissionProtocol';
 
@@ -45,6 +46,7 @@ function App() {
                 <Hero />
                 <Mission />
                 <Tracks />
+                <ProblemStatements />
                 <PreviousEvents />
                 <Protocol />
                 <Organizers />
