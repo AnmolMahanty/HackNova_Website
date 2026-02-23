@@ -45,7 +45,7 @@ const ProblemStatements = () => {
                         <div className="w-12 h-12 rounded-full bg-neon-blue/10 flex items-center justify-center mb-6 border border-neon-blue/30 text-neon-blue font-bold font-orbitron">01</div>
                         <h3 className="text-xl font-orbitron text-white mb-3 tracking-widest uppercase">SELECT A TRACK</h3>
                         <p className="text-gray-400 font-mono text-xs leading-relaxed">
-                            Choose one of the four core domains that best fits your expertise or interest.
+                            Choose one of the five core domains that best fits your expertise or interest.
                         </p>
                     </motion.div>
 
