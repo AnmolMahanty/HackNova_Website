@@ -116,20 +116,38 @@ const Protocol = () => {
           <p className="text-gray-600 text-xs mb-8 font-mono">Powering the innovation of tomorrow.</p>
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="h-12 flex items-center px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-3xl font-black text-red-600 font-sans tracking-tighter"></span>
-            </div>
-            <div className="h-12 flex items-center px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-xl font-bold text-yellow-500 font-orbitron"></span>
-            </div>
-            <div className="h-12 flex items-center gap-1 px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-xl font-bold text-blue-500 font-serif italic"></span>
-              <span className="text-sm text-gray-400"></span>
-            </div>
-            <div className="h-12 flex items-center gap-0 px-4 border border-white/10 hover:border-neon-purple/50 transition-colors glitch-card">
-              <span className="text-lg font-bold text-purple-500"></span>
-              <span className="text-lg font-light text-white"></span>
-            </div>
+            <motion.div 
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="h-20 flex items-center px-6 border border-white/10 hover:border-neon-purple/50 bg-black/40 rounded-lg transition-all duration-300 glitch-card group"
+            >
+              <img 
+                src="/Unstop_logo.png" 
+                alt="Unstop" 
+                className="h-10 w-auto object-contain brightness-90 group-hover:brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(217,70,239,0.3)] transition-all grayscale hover:grayscale-0"
+              />
+            </motion.div>
+            
+            <motion.div 
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="h-20 flex items-center px-6 border border-white/10 hover:border-neon-blue/50 bg-black/40 rounded-lg transition-all duration-300 glitch-card group"
+            >
+              <img 
+                src="/Interview_buddy_logo.jpeg" 
+                alt="Interview Buddy" 
+                className="h-10 w-auto object-contain brightness-90 group-hover:brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.3)] transition-all grayscale hover:grayscale-0 rounded-sm"
+              />
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ y: -5, scale: 1.05 }}
+              className="h-20 flex items-center px-6 border border-white/10 hover:border-neon-purple/50 bg-black/40 rounded-lg transition-all duration-300 glitch-card group"
+            >
+              <img 
+                src="/xyz_logo.png" 
+                alt="Partner XYZ" 
+                className="h-12 w-auto object-contain brightness-90 group-hover:brightness-110 group-hover:drop-shadow-[0_0_10px_rgba(217,70,239,0.3)] transition-all grayscale hover:grayscale-0"
+              />
+            </motion.div>
           </div>
         </div>
 
