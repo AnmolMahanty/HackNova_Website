@@ -14,6 +14,7 @@ const tracks = [
     color: "hover:border-[#FFC800] hover:shadow-[0_0_30px_rgba(255,200,0,0.4)]",
     iconColor: "text-[#FFC800]",
     glowColor: "rgba(255,200,0,0.15)",
+    offset: 8,
   },
   {
     title: "AI / ML",
@@ -23,6 +24,7 @@ const tracks = [
     color: "hover:border-[#FF003C] hover:shadow-[0_0_30px_rgba(255,0,60,0.4)]",
     iconColor: "text-[#FF003C]",
     glowColor: "rgba(255,0,60,0.15)",
+    offset: 7,
   },
   {
     title: "WEB / APP DEV",
@@ -32,6 +34,7 @@ const tracks = [
     color: "hover:border-[#00FF64] hover:shadow-[0_0_30px_rgba(0,255,100,0.4)]",
     iconColor: "text-[#00FF64]",
     glowColor: "rgba(0,255,100,0.15)",
+    offset: 6,
   },
   {
     title: "CYBERTECH",
@@ -41,6 +44,7 @@ const tracks = [
     color: "hover:border-[#B400FF] hover:shadow-[0_0_30px_rgba(180,0,255,0.4)]",
     iconColor: "text-[#B400FF]",
     glowColor: "rgba(180,0,255,0.15)",
+    offset: 0,
   },
   {
     title: "OPEN INNOVATION",
@@ -50,6 +54,7 @@ const tracks = [
     color: "hover:border-[#00F0FF] hover:shadow-[0_0_30px_rgba(0,240,255,0.4)]",
     iconColor: "text-[#00F0FF]",
     glowColor: "rgba(0,240,255,0.15)",
+    offset: 5,
   },
 ];
 
@@ -115,7 +120,7 @@ const Tracks = () => {
         {/* Cards */}
         <div className="flex flex-wrap justify-center gap-8">
           {tracks.map((track, index) => {
-            const count = submissionCounts[track.key] || 0;
+            const count = (submissionCounts[track.key] || 0) + (track.offset || 0);
             const isLoading = loading;
             
             return (

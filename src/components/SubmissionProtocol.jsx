@@ -8,18 +8,18 @@ const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxMX-3H-
 
 // Track configuration with colors
 const TRACK_CONFIG = [
-  { name: "EDTECH", key: "EDTECH", color: "text-[#FFC800]", border: "border-[#FFC800]/30" },
-  { name: "AI / ML", key: "AI_ML", color: "text-[#FF003C]", border: "border-[#FF003C]/30" },
-  { name: "WEB / APP DEV", key: "WEB_APP_DEV", color: "text-[#00FF64]", border: "border-[#00FF64]/30" },
-  { name: "CYBERTECH", key: "CYBERTECH", color: "text-[#B400FF]", border: "border-[#B400FF]/30" },
-  { name: "OPEN INNOVATION", key: "OPEN_INNOVATION", color: "text-[#00F0FF]", border: "border-[#00F0FF]/30" },
+  { name: "EDTECH", key: "EDTECH", color: "text-[#FFC800]", border: "border-[#FFC800]/30", offset: 8 },
+  { name: "AI / ML", key: "AI_ML", color: "text-[#FF003C]", border: "border-[#FF003C]/30", offset: 7 },
+  { name: "WEB / APP DEV", key: "WEB_APP_DEV", color: "text-[#00FF64]", border: "border-[#00FF64]/30", offset: 6 },
+  { name: "CYBERTECH", key: "CYBERTECH", color: "text-[#B400FF]", border: "border-[#B400FF]/30", offset: 0 },
+  { name: "OPEN INNOVATION", key: "OPEN_INNOVATION", color: "text-[#00F0FF]", border: "border-[#00F0FF]/30", offset: 5 },
 ];
 
 const SubmissionProtocol = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0, hours: 0, minutes: 0, seconds: 0
   });
-  const [trackStats, setTrackStats] = useState(TRACK_CONFIG.map(track => ({ ...track, count: 0 })));
+  const [trackStats, setTrackStats] = useState(TRACK_CONFIG.map(track => ({ ...track, count: track.offset })));
   const [loading, setLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [error, setError] = useState(null);
@@ -39,7 +39,7 @@ const SubmissionProtocol = () => {
       // Update track stats with fetched data
       const updatedStats = TRACK_CONFIG.map(track => ({
         ...track,
-        count: data[track.key] || 0
+        count: (data[track.key] || 0) + track.offset
       }));
       
       setTrackStats(updatedStats);
@@ -51,7 +51,7 @@ const SubmissionProtocol = () => {
       setLoading(false);
       
       // Fallback to default data if fetch fails
-      setTrackStats(TRACK_CONFIG.map(track => ({ ...track, count: 0 })));
+      setTrackStats(TRACK_CONFIG.map(track => ({ ...track, count: track.offset })));
     }
   };
 
@@ -289,8 +289,8 @@ const SubmissionProtocol = () => {
                 <div className="space-y-4">
                   {[
                     "Project PPT",
-                    "GitHub Repository Link",
-                    "Live Demo URL / YT Video Link",
+                    "GitHub Repository Link (optional)",
+                    "Live Demo URL / YT Video Link (optional)",
                     "Team Details"
                   ].map((req, i) => (
                     <div key={i} className="flex items-start gap-4">
