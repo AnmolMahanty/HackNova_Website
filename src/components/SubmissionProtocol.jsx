@@ -311,14 +311,54 @@ const SubmissionProtocol = () => {
               </div>
 
               <div className="mt-8">
-                <a 
+                <motion.a 
                   href="https://forms.gle/tvxjk8LiWJ43bRVe8" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-4 bg-neon-blue/10 border border-neon-blue/50 text-neon-blue font-orbitron text-sm tracking-[0.2em] uppercase hover:bg-neon-blue/20 hover:shadow-[0_0_20px_rgba(0,180,216,0.3)] transition-all flex items-center justify-center gap-3 group"
+                  animate={{
+                    boxShadow: [
+                      "0 0 0px rgba(0, 240, 255, 0)",
+                      "0 0 25px rgba(0, 240, 255, 0.4)",
+                      "0 0 0px rgba(0, 240, 255, 0)"
+                    ],
+                    scale: [1, 1.02, 1],
+                    borderColor: [
+                      "rgba(0, 240, 255, 0.5)",
+                      "rgba(0, 240, 255, 1)",
+                      "rgba(0, 240, 255, 0.5)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    backgroundColor: "rgba(0, 240, 255, 0.2)",
+                    boxShadow: "0 0 30px rgba(0, 240, 255, 0.6)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full py-4 bg-neon-blue/10 border border-neon-blue/50 text-neon-blue font-orbitron text-sm tracking-[0.2em] uppercase transition-all flex items-center justify-center gap-3 group relative overflow-hidden"
                 >
-                  INITIALIZE SUBMISSION <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </a>
+                  <span className="relative z-10 flex items-center gap-3">
+                    Click to INITIALIZE SUBMISSION <ExternalLink size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </span>
+                  
+                  {/* Subtle inner glow sweep */}
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent -translate-x-full"
+                    animate={{
+                      translateX: ["-100%", "100%"]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                      delay: 1
+                    }}
+                  />
+                </motion.a>
               </div>
             
             {/* Corner Accents */}
