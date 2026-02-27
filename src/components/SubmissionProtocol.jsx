@@ -8,11 +8,11 @@ const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxMX-3H-
 
 // Track configuration with colors
 const TRACK_CONFIG = [
-  { name: "EDTECH", key: "EDTECH", color: "text-[#FFC800]", border: "border-[#FFC800]/30", offset: 8 },
-  { name: "AI / ML", key: "AI_ML", color: "text-[#FF003C]", border: "border-[#FF003C]/30", offset: 7 },
-  { name: "WEB / APP DEV", key: "WEB_APP_DEV", color: "text-[#00FF64]", border: "border-[#00FF64]/30", offset: 6 },
-  { name: "CYBERTECH", key: "CYBERTECH", color: "text-[#B400FF]", border: "border-[#B400FF]/30", offset: 0 },
-  { name: "OPEN INNOVATION", key: "OPEN_INNOVATION", color: "text-[#00F0FF]", border: "border-[#00F0FF]/30", offset: 5 },
+  { name: "EDTECH", key: "EDTECH", color: "text-[#FFC800]", border: "border-[#FFC800]/30", offset: 10 },
+  { name: "AI / ML", key: "AI_ML", color: "text-[#FF003C]", border: "border-[#FF003C]/30", offset: 11 },
+  { name: "WEB / APP DEV", key: "WEB_APP_DEV", color: "text-[#00FF64]", border: "border-[#00FF64]/30", offset: 10 },
+  { name: "CYBERTECH", key: "CYBERTECH", color: "text-[#B400FF]", border: "border-[#B400FF]/30", offset: 4 },
+  { name: "OPEN INNOVATION", key: "OPEN_INNOVATION", color: "text-[#00F0FF]", border: "border-[#00F0FF]/30", offset: 15 },
 ];
 
 const SubmissionProtocol = () => {
