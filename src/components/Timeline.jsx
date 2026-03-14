@@ -3,46 +3,58 @@ import { Calendar, Clock, Flag, CheckCircle, Users, Trophy } from "lucide-react"
 
 const events = [
   {
-    date: "11", month: "FEB", year: "2026", time: "12:00 PM IST",
-    title: "Registration Opens",
-    description: "Portal opens for team registration and idea submission.",
-    icon: <Flag />, status: "COMPLETED"
+    date: "17", month: "MAR", year: "2026", time: "8:00 AM - 9:15 AM",
+    title: "Registration & Check-in",
+    description: "Participant verification, ID badge distribution.",
+    icon: <Flag />, status: "UPCOMING"
   },
   {
-    date: "23", month: "FEB", year: "2026", time: "2:00 PM IST",
-    title: "Pre-Hackathon Event",
-    description: "Detailed explanation of the Hackathon and the problem statements.",
-    icon: <Calendar />, status: "UPCOMING"
-  },
-  {
-    date: "28", month: "FEB", year: "2026", time: "12:00 PM IST",
-    title: "Registration Deadline",
-    description: "Last date to register your team and submit initial abstracts.",
-    icon: <Clock />, status: "ACTIVE"
-  },
-  {
-    date: "28", month: "FEB", year: "2026", time: "8:00 PM IST",
-    title: "PPT & Prototype Submission",
-    description: "Deadline for submitting detailed presentation and prototype video.",
-    icon: <CheckCircle />, status: "ACTIVE"
-  },
-  {
-    date: "07", month: "MAR", year: "2026", time: "8:00 PM IST",
-    title: "Shortlist Teams Announcement",
-    description: "Top teams selected for the grand finale are announced.",
-    icon: <Trophy />, status: "UPCOMING"
-  },
-  {
-    date: "09", month: "MAR", year: "2026", time: "8:00 PM IST",
-    title: "Mentor Allocation",
-    description: "Industry experts assigned to shortlisted teams for guidance.",
+    date: "17", month: "MAR", year: "2026", time: "8:15 AM - 9:30 AM",
+    title: "Breakfast & Networking",
+    description: "Light breakfast and informal networking among teams.",
     icon: <Users />, status: "UPCOMING"
   },
   {
-    date: "17", month: "MAR", year: "2026", time: "08:00 AM IST",
-    title: "Offline Hackathon Day",
-    description: "The Grand Finale. In-person coding, building, and pitching.",
-    icon: <Calendar />, status: "UPCOMING", highlight: true
+    date: "17", month: "MAR", year: "2026", time: "9:30 AM - 10:30 AM",
+    title: "Inauguration Ceremony",
+    description: "Welcome address, introduction of hackathon theme and rules, chief guest address, launch announcement (only Team Leaders will attend).",
+    icon: <Flag />, status: "UPCOMING"
+  },
+  {
+    date: "17", month: "MAR", year: "2026", time: "10:30 AM - 1:30 PM",
+    title: "Hacking Session – 1",
+    description: "Teams will add final touches and provide complete details about their Hackathon Project (with the tasks they have completed ) to the organizers (to be reviewed in-depth by judges before the final presentation).",
+    icon: <CheckCircle />, status: "UPCOMING" 
+  },
+  {
+    date: "17", month: "MAR", year: "2026", time: "1:00 PM - 2:30 PM",
+    title: "Lunch Break",
+    description: "Lunch provided. Participants can continue working on their project.",
+    icon: <Clock />, status: "UPCOMING"
+  },
+  {
+    date: "17", month: "MAR", year: "2026", time: "2:30 PM - 3:30 PM",
+    title: "Hacking Session – 2",
+    description: "Teams will finalize their work and apply the finishing touches to their projects.",
+    icon: <CheckCircle />, status: "UPCOMING"
+  },
+  {
+    date: "17", month: "MAR", year: "2026", time: "3:30 PM - 6:00 PM",
+    title: "Final Judging Round",
+    description: "Each team presents for 5 minutes followed by 3 minutes of Q&A with judges.",
+    icon: <Users />, status: "UPCOMING"
+  },
+  {
+    date: "17", month: "MAR", year: "2026", time: "4:30 PM - 5:00 PM",
+    title: "Snacks Break",
+    description: "Short refreshment break with snacks and beverages.",
+    icon: <Clock />, status: "UPCOMING"
+  },
+  {
+    date: "17", month: "MAR", year: "2026", time: "6:15 PM - 7:00 PM",
+    title: "Result Announcement & Felicitation",
+    description: "Judges' remarks, winner announcement, prize distribution, certificate distribution, vote of thanks, closing group photo.",
+    icon: <Trophy />, status: "UPCOMING", highlight: true
   }
 ];
 
@@ -69,10 +81,10 @@ const Timeline = () => {
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            data-text="MISSION TIMELINE"
+            data-text="EVENT FLOW"
             className="glitch-text text-4xl md:text-6xl font-bold font-orbitron text-white mb-4"
           >
-            MISSION <span className="text-neon-blue">TIMELINE</span>
+            EVENT <span className="text-neon-blue">FLOW</span>
           </motion.h2>
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-16 bg-neon-blue/50" />
@@ -111,26 +123,36 @@ const Timeline = () => {
                         ? "border-neon-blue/60 shadow-[0_0_25px_rgba(0,240,255,0.2)]"
                         : "border-white/10 hover:border-neon-blue/40"
                     }`}>
-                      {/* Status + Date row */}
-                      <div className={`flex items-center gap-4 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
-                        <div className="flex flex-col items-center justify-center w-16 h-16 bg-white/5 rounded-lg border border-white/10 group-hover:border-neon-blue/30 transition-colors shrink-0">
-                          <span className="text-xl font-bold text-white">{event.date}</span>
-                          <span className="text-xs text-neon-blue font-mono">{event.month}</span>
+                      {/* Date & Time Row */}
+                      <div className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-6 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}>
+                        {/* Event Date Box */}
+                        <div className="flex flex-col items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-white/5 rounded-lg border border-white/10 group-hover:border-neon-blue/30 transition-colors shrink-0">
+                          <span className="text-lg sm:text-xl font-bold text-white">{event.date}</span>
+                          <span className="text-[10px] sm:text-xs text-neon-blue font-mono">{event.month}</span>
                         </div>
-                        <div className={index % 2 === 0 ? "md:text-right" : ""}>
-                          <span className={`text-xs font-mono px-2 py-1 rounded border ${cfg.border} ${cfg.text}`}>
+                        
+                        {/* Event Time and Status Box */}
+                        <div className={`flex flex-col gap-2 ${index % 2 === 0 ? "md:items-end" : "items-start"}`}>
+                          {/* Emphasized Time Badge */}
+                          <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-neon-blue/10 border border-neon-blue/40 text-neon-blue shadow-[0_0_10px_rgba(0,240,255,0.15)] font-mono font-bold text-sm sm:text-base tracking-wide`}>
+                            <Clock size={16} className="text-neon-blue" />
+                            {event.time}
+                          </div>
+                          {/* Status Badge */}
+                          <span className={`text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border ${cfg.border} ${cfg.text}`}>
                             {event.status}
                           </span>
-                          <div className="text-gray-400 text-xs mt-1 flex items-center gap-1">
-                            <Clock size={12} />{event.time}
-                          </div>
                         </div>
                       </div>
 
-                      <h3 className="text-xl font-orbitron font-bold text-white mb-2 group-hover:text-neon-blue transition-colors rgb-hover">
+                      {/* Event Title (Properly Named) */}
+                      <h3 className={`text-xl md:text-2xl font-orbitron font-bold text-white mb-3 group-hover:text-neon-blue transition-colors rgb-hover ${index % 2 === 0 ? "md:text-right text-left" : "text-left"}`}>
                         {event.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed">{event.description}</p>
+                      {/* Event Description */}
+                      <p className={`text-gray-400 text-sm leading-relaxed ${index % 2 === 0 ? "md:text-right text-left" : "text-left"}`}>
+                        {event.description}
+                      </p>
 
                       {/* Connector arrow */}
                       <div className={`absolute top-8 hidden md:block w-3 h-3 bg-black/60 border-t border-l border-white/10 rotate-45 group-hover:border-neon-blue/40 transition-colors ${
